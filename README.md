@@ -8,7 +8,7 @@ Method: Our aim is to create a visual representation of the spread to different 
 
 Data set: 
 
-URL source: https://www.kaggle.com/lalish99/covid19-mx
+URL source: https://datos.gob.mx/busca/dataset/informacion-referente-a-casos-covid-19-en-mexico
 
 The data is updated daily, and we aim to track and find patterns that could explain how it spreads. The data is sourced from the Mexican government health authorities, which keep track of the confirmed and suspected cases around the country. CSV files of suspected, and confirmed cases, updated daily with new evidence. They contain data including state, age, sex, number of confirmed cases, number of suspected cases, and number of deceased cases (among others).
 
