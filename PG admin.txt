@@ -1,0 +1,40 @@
+drop table if exists covidmexico;
+
+CREATE TABLE covidmexico(
+	FECHA_ACTUALIZACION date,
+  	ID_REGISTRO VARCHAR(30),
+	ORIGEN integer,	
+	SECTOR integer,	
+	ENTIDAD_UM integer,
+	SEXO integer,
+	ENTIDAD_NAC	integer NOT NULL PRIMARY KEY,
+	ENTIDAD_RES	integer,
+	MUNICIPIO_RES integer,
+	TIPO_PACIENTE integer,
+	FECHA_INGRESO date,
+	FECHA_SINTOMAS date,
+	FECHA_DEF date,
+	INTUBADO integer,	
+	NEUMONIA integer,
+	EDAD integer,
+	NACIONALIDAD integer,
+	EMBARAZO integer,	
+	HABLA_LENGUA_INDIG integer,	
+	DIABETES integer,
+	EPOC integer,	
+	ASMA integer,	
+	INMUSUPR integer,	
+	HIPERTENSION integer,
+	OTRA_COM integer,	
+	CARDIOVASCULAR integer,	
+	OBESIDAD integer,
+	TABAQUISMO integer,	
+	OTRO_CASO integer,		
+	PAIS_ORIGEN_UCI integer,	
+	RENAL_CRONICA integer,	
+	RESULTADO integer,	
+	MIGRANTE integer,	
+	PAIS_NACIONALIDAD integer	
+);
+
+select * from covidmexico
