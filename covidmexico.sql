@@ -15,8 +15,8 @@ CREATE TABLE covidmexico(
 	was_in_contact_with_other_case integer,
 	type_health_institution integer,
 	inpatient_outpatient integer,
-	inpatient_date date,
-	date_symptoms_began date,
+	inpatient_date VARCHAR(30),
+	date_symptoms_began VARCHAR(30),
 	COVID_status integer,
 	pregnancy_status integer,
 	DM2 integer,
@@ -33,7 +33,7 @@ CREATE TABLE covidmexico(
 	icu integer,
 	intubated integer,
 	death_alive integer,
-	date_death date	
+	date_death VARCHAR(30),	
 );
 
 
