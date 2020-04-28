@@ -1,0 +1,4 @@
+mysql_host:'localhost'
+mysql_user: 'postgres'
+mysql_password: 'postgres'
+mysql_db: 'mexicocovid'

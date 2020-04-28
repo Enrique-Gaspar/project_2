@@ -1,9 +1,13 @@
-ALTER DEFAULT PRIVILEGES
-FOR USER postgres
-IN SCHEMA public
-GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO postgres;
+import numpy as np
+import datetime as dt
 
-drop table if exists covidmexico;
+import sqlalchemy
+from sqlalchemy.ext.automap import automap_base
+from sqlalchemy.orm import Session
+from sqlalchemy import create_engine, func
+
+from flask import Flask, jsonify
+
 
 
 CREATE TABLE covidmexico(
