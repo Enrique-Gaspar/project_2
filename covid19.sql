@@ -2,7 +2,7 @@ drop table covid19;
 
 CREATE TABLE covid19(
 	index integer,
-	id VARCHAR(20),
+	id VARCHAR(20) PRIMARY KEY,
 	gender integer,
 	age	integer,
 	indig_lang_speaker integer,

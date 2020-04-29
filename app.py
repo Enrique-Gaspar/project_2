@@ -10,13 +10,20 @@ from flask import Flask, jsonify
 
 # Database Setup
 
-engine = create_engine("postgresql://admin:postgress@localhost:5432/covid19")
-
 Base = automap_base()
+engine = create_engine("postgresql://postgres:postgres@localhost:5432/covid19")
 Base.prepare(engine, reflect=True)
+session = Session(engine)
+covidData = Base.classes.covid19
+#print (engine.table_names())
 
 # Flask Setup
 app = Flask(__name__)
+
+@app.route("/")
+def welcome():
+    
+    return (session, covidData)
 
 
 if __name__ == '__main__':
