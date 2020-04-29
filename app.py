@@ -10,7 +10,7 @@ from flask import Flask, jsonify
 
 # Database Setup
 
-engine = create_engine("sqlite:////covid.db")
+engine = create_engine("postgresql://admin:postgress@localhost:5432/covid19")
 
 Base = automap_base()
 Base.prepare(engine, reflect=True)
