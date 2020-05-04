@@ -7,18 +7,14 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 
 # Database Setup
-
 Base = automap_base()
 engine = create_engine("postgresql://postgres:postgres@localhost:5432/covid19")
-engine = create_engine("postgresql://postgres:postgres@localhost:5432/covid19") 
 Base.prepare(engine, reflect=True)
 session = Session(engine)
 covidData = Base.classes.covid19
 
 @app.route("/")
 def welcome():
-
-    return (session, covidData)
     db_list = session.query(covidData).all()
     result = [d.__dict__ for d in db_list]
     for r in result:
@@ -28,9 +24,7 @@ def welcome():
 
 @app.route("/bar")
 def barchart():
-
-
-    return jsonify(result=result)
+    return render_template('charts.html')
 
 
 
