@@ -22,11 +22,17 @@ def welcome():
     print (result)
     return jsonify(result=result)
 
-@app.route("/bar")
+@app.route("/inpatients_per_date")
 def barchart():
-    return render_template('charts.html')
+    return render_template('inpatients_per_date.html')
 
+@app.route("/deaths_per_date")
+def barchart():
+    return render_template('deaths_per_date.html')
 
+@app.route("/subjects_per_state")
+def barchart():
+    return render_template('subjects_per_state.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
