@@ -1,44 +1,50 @@
-CREATE TABLE covidmexico(
+drop table if exists covidmex;
+
+CREATE TABLE covidmex(
+	index VARCHAR(20),
 	id VARCHAR(20),
-	gender integer,
-	age	integer,
-	indig_lang_speaker integer,
-	mexican_y_n integer,
-	birth_State integer,
-	State_residence integer,
-	migration_status integer,
-	was_in_contact_with_other_case integer,
 	type_health_institution integer,
+	gender integer,
+	birth_state integer,
+	state_residence integer,
 	inpatient_outpatient integer,
 	inpatient_date VARCHAR(20),
 	date_symptoms_began VARCHAR(20),
-	COVID_status integer,
+	date_death VARCHAR(20),
+	intubated integer,
+	pneumonia integer,
+	age	integer,
+	mexican_y_n integer,
 	pregnancy_status integer,
-	DM2 integer,
-	COPD integer,
+	indig_lang_speaker integer,
+	dm2 integer,
+	copd integer,
 	ashtma integer,
 	immunosuppression integer,
-	HBP integer,
+	hbp integer,
+	other_comorbility integer,
 	cardiovascular integer,
 	obesity integer,
-	RCD integer,
+	rcd integer,
 	smoking_status integer,
-	other_comorbility integer,
-	pneumonia integer,
+	was_in_contact_with_other_case integer,
+	covid_status integer,
+	migration_status integer,
 	icu integer,
-	intubated integer,
 	death_alive integer,
-	date_death VARCHAR(20),
-	citizenship integer,
-	country_bef_Mexico integer
+	country_bef_mexico integer,
+	citizenship integer
 );
 
-select * from covidmexico;
+select * from covidmex;
 
 
-COPY covidmexico(id, gender, age, indig_lang_speaker, mexican_y_n, birth_State, State_residence, migration_status,
-	 was_in_contact_with_other_case, type_health_institution, inpatient_outpatient, inpatient_date,date_symptoms_began,
-	 COVID_status, pregnancy_status, DM2, COPD, ashtma, immunosuppression, HBP, cardiovascular,
-	 obesity, RCD, smoking_status, other_comorbility, pneumonia, icu, intubated, death_alive,
-	 date_death, citizenship, country_bef_Mexico) 
-FROM 'C:\Users\Jan Hogewoning\Desktop\project 2\project_2\data_26apr_EG1.csv' DELIMITER ',' CSV HEADER;
+COPY covidmex(index, id, type_health_institution, gender, birth_state, state_residence,
+			  inpatient_outpatient, inpatient_date, date_symptoms_began, date_death,intubated, 
+			  pneumonia, age, mexican_y_n, pregnancy_status,indig_lang_speaker, dm2, copd, ashtma, 
+			  immunosuppression, hbp, other_comorbility, cardiovascular, obesity, rcd, 
+			  smoking_status,was_in_contact_with_other_case, covid_status, migration_status,
+			  icu, death_alive, country_bef_mexico_n,  citizenship_n) 
+FROM '/Users/henrigaspard/Desktop/DAB_QQ/project_2/final/data/data_EG.csv' DELIMITER ',' CSV HEADER;
+
+select * from covidmex;
