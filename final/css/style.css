@@ -172,5 +172,12 @@ select {
   .hero h1 {
     animation: smaller-title 1.2s forwards linear;
   }
-}
 
+  .center {
+  display: block;
+  margin-left: 50px;
+  margin-right: 50px;
+  width: 30px;
+} 
+
+}

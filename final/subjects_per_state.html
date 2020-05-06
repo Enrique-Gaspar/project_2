@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Mexico Map</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
+   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+     integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+     crossorigin="">
+    </script>
+
+</head>
+<body>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <div class="wrapper">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="subjects_per_state.html">Mexico Map
+          </a>
+        </div>
+      </div>
+       <!-- A black horizontal navbar that becomes vertical on small screens -->
+    <nav class="navbar navbar-expand-sm navbar-blue">
+      <a class="nav-link" href="main.html">
+      </a>
+      <ul class="navbar-nav">
+          <!-- Home button -->
+          <li class="nav-item active">
+              <a class="nav-link" href="main.html">  
+                  Home</a>
+          </li>
+      </ul>
+      <ul class="navbar-nav">
+              <!-- Mexico Map button -->
+              <li class="nav-item active">
+                  <a class="nav-link" href="subjects_per_state.html">  
+                      Mexico Map</a>
+              </li>
+          </ul> 
+
+          <ul class="navbar-nav">
+              <!-- Mortality button -->
+              <li class="nav-item active">
+                  <a class="nav-link" href="deaths_per_date.html">  
+                      Mortality Data</a>
+              </li>
+          </ul>
+
+          <ul class="navbar-nav">
+              <!-- Very Sick cases button -->
+              <li class="nav-item active">
+                  <a class="nav-link" href="inpatients_per_date.html">  
+                      Clinical Status Severity</a>
+              </li>
+          </ul>
+  </nav>
+  <!-- Line Break -->
+  <div style="background-color:goldenrod;">
+      <div class="row">
+          <div class="col-md-12">
+              </br>
+              </br>
+          </div>
+      </div>
+  </div> <!-- ends background color -->
+
+    </nav>
+    <div class="hero text-center">
+      <h1>Mexico Map</h1>
+    </div>
+    <div class="container">
+      <div class="row margin-top-50">
+        <div class="col-md-12">
+          <aside class="filters">
+            <div class="panel panel-default">
+              <div class="panel-heading">This map contains information on COVID-19 cases per state. Click on a marker to see the information about the state of your choice. Zoom in to pick your state.</div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row margin-top-50">
+        <div class="col-md-12">
+          <aside class="filters">
+            <div class='center'>
+              <div class='col-md-12'>
+                 <div id ="map" style="width: 900px; height: 600px; margin-top: 30px; margin-left: 100px; margin-right: 60px">
+                    <div class='col-md-12'></div>
+                  </div> 
+                  <script>
+                      var Leaflet = L.noConflict();
+                      var map = L.map('map').setView([19.427743935948932,-99.13925170898438],4);    
+                          L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=SrcjD120JNCeQTE0YgSX', {attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'}).addTo(map);
+                          //hasta aqui tenemos un mapa en donde se ve el pais.  
+                          //se agregaran marcadores por estado
+                          //Aguascalientes
+                          L.marker([21.97361354260756,-102.293701171875]).addTo(map).bindPopup('<p>Aguascalientes<br/>#casos:532 </P>');
+                          //Baja California
+                          L.marker([30.557530797259172,-115.20263671874999]).addTo(map).bindPopup('<p>B.California<br/>#casos:1,255 </P>');
+                          //Baja California Sur
+                          L.marker([25.48295117535531,-111.70898437499999]).addTo(map).bindPopup('<p>B.California Sur<br/>#casos:1,456 </P>');
+                          //Campeche
+                          L.marker([19.802885893331794,-90.50537109375]).addTo(map).bindPopup('<p>Campeche<br/>#casos:3,293 </P>');
+                          //Coahuila
+                          L.marker([27.6251403350933,-101.77734374999999]).addTo(map).bindPopup('<p>Coahuila<br/>#casos:1,756 </P>');
+                          //Colima
+                          L.marker([19.186677697957833,-103.55712890625]).addTo(map).bindPopup('<p>Colima<br/>#casos:12,896 </P>');
+                          //CDMX
+                          L.marker([19.427743935948932,-99.13925170898438]).addTo(map).bindPopup('<p>CDMX<br/>#casos:15,693 </P>');
+                          //Chiapas
+                          L.marker([16.541430360299973,-92.5762939453125]).addTo(map).bindPopup('<p>Chiapas<br/>#casos:18,960 </P>');
+                          //Chihuahua
+                          L.marker([29.142566155107065,-106.36962890624999]).addTo(map).bindPopup('<p>Chihuahua<br/>#casos:3,697 </P>');
+                          //Durango
+                          L.marker([24.864010555361574,-104.8040771484375]).addTo(map).bindPopup('<p>Durango<br/>#casos:13,698 </P>');
+                          //Guanajuato
+                          L.marker([20.838277806058933,-101.151123046875]).addTo(map).bindPopup('<p>Guanajuato<br/>#casos:26,369 </P>');
+                          //Guerrero
+                          L.marker([17.5602465032949,-99.8876953125]).addTo(map).bindPopup('<p>Guerrero<br/>#casos:36,698 </P>');
+                          //Hidalgo
+                          L.marker([20.612219573881042,-99.0142822265625]).addTo(map).bindPopup('<p>Hidalgo<br/>#casos:12,963 </P>');
+                          //Jalisco
+                          L.marker([20.21581109239457,-104.12567138671875]).addTo(map).bindPopup('<p>Jalisco<br/>#casos:12,489 </P>');
+                          //Edo.de Mexico
+                          L.marker([19.621892180319374,-99.66796875]).addTo(map).bindPopup('<p>Edo.de MÃ©xico<br/>#casos:13,896 </P>');
+                          //Michoacan
+                          L.marker([19.12440952808487,-101.953125]).addTo(map).bindPopup('<p>MichoacÃ¡n<br/>#casos:15,711 </P>');
+                          //Morelos
+                          L.marker([ 18.72429964507829,-99.041748046875]).addTo(map).bindPopup('<p>Morelos<br/>#casos:16,456 </P>');
+                          //Nayarit
+                          L.marker([21.866596775776166,-104.87823486328125]).addTo(map).bindPopup('<p>Nayarit<br/>#casos:16,578 </P>');
+                          //Nuevo Leon
+                          L.marker([25.22978942503438,-99.67071533203125]).addTo(map).bindPopup('<p>Nuevo LeÃ³n<br/>#casos:16,893 </P>');
+                          //Oaxaca
+                          L.marker([16.75194792318035,-96.3555908203125]).addTo(map).bindPopup('<p>Oaxaca<br/>#casos:X12,522</P>');
+                          //Puebla
+                          L.marker([18.625424540701264,-97.9541015625]).addTo(map).bindPopup('<p>Puebla<br/>#casos:12,455 </P>');
+                          //Queretaro
+                          L.marker([21.046054602088628,-99.69543457031249]).addTo(map).bindPopup('<p>Queretaro<br/>#casos:4,324 </P>');
+                          //Quintana Roo
+                          L.marker([19.331878440818787,-88.04443359375]).addTo(map).bindPopup('<p>Quintana Roo<br/>#casos:14,456 </P>');
+                          //San Luis
+                          L.marker([22.39071391683855,-100.1513671875]).addTo(map).bindPopup('<p>San Luis<br/>#casos:16,578 </P>');
+                          //Sinaloa
+                          L.marker([24.16680208530324,-106.8310546875]).addTo(map).bindPopup('<p>Sinaloa<br/>#casos:8,901 </P>');
+                          //Sonora
+                          L.marker([29.668962525992505,-110.28076171875]).addTo(map).bindPopup('<p>Sonora<br/>#casos:2,345 </P>');
+                          //Tabasco
+                          L.marker([18.245003052249718,-92.62847900390625]).addTo(map).bindPopup('<p>Tabasco<br/>#casos:4,560 </P>');
+                          //Tamaulipas
+                          L.marker([24.23694700391751,-98.26171875]).addTo(map).bindPopup('<p>Tamaulipas<br/>#casos:7,890 </P>');
+                          //Tlaxcala
+                          L.marker([19.417382820241254,-98.10791015625]).addTo(map).bindPopup('<p>Tlaxcala<br/>#casos:4,143 </P>');
+                          //Veracruz
+                          L.marker([18.531700307384043,-95.73486328124999]).addTo(map).bindPopup('<p>Veracuz<br/>#casos:4,321 </P>');
+                          //Yucatan
+                          L.marker([20.601936194281016,-88.868408203125]).addTo(map).bindPopup('<p>YucatÃ¡n<br/>#casos:5,601 </P>');
+                          //Zacatecas
+                          L.marker([23.50355189742412,-102.85400390625]).addTo(map).bindPopup('<p>Zacatecas<br/>#casos:1,094 </P>');
+                     </script>
+                </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+    
+    <footer class="footer">
+      <span class="bottom"></span>
+    </footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
